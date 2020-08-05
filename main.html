@@ -1,0 +1,61 @@
+<script>
+    function computerPlay() {
+        let picks = Array("rock", "paper", "scissors");
+        let pick = picks[Math.floor(Math.random() * picks.length)];
+        return pick;
+    } 
+
+    function playRound(playerSelection, computerSelection) {
+        let userInput = playerSelection.toLowerCase();
+        let computerInput = computerSelection; 
+        let text; 
+
+        switch (userInput) {
+            case "rock":
+                switch (computerInput) {
+                    case "rock":
+                        text = "Its even, both picked rock!";
+                        break;
+                    case "paper":
+                        text = "You lose! paper beats rock";
+                        break;
+                    case "scissors":
+                        text = "You win! rock beats scissors";
+                        break;
+                }
+                break;
+            case "paper":
+                switch (computerInput) {
+                    case "rock":
+                        text = "you win! paper beats rock";
+                        break;
+                    case "paper":
+                        text = "Its even! you both picked paper!";
+                        break;
+                    case "scissors":
+                        text = "You lose! scissors beats paper!";
+                        break;
+                }
+                break;
+            case "scissors":
+                switch (computerInput) {
+                    case "rock":
+                        text = "You lose! rocks beats scissors";
+                        break;
+                    case "paper":
+                        text = "You win! scissors beats paper";
+                        break;
+                    case "scissors":
+                        text = "Its even! you both picked scissors!";
+                        break;
+                }
+                break;
+            default:
+                text = "you did not make a pick";
+                break;
+        }
+
+        return text;
+
+    }
+</script>
