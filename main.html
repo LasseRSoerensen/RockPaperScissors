@@ -1,4 +1,7 @@
-<script>
+<script> 
+
+    let user = prompt(); 
+
     function computerPlay() {
         let picks = Array("rock", "paper", "scissors");
         let pick = picks[Math.floor(Math.random() * picks.length)];
@@ -54,8 +57,48 @@
                 text = "you did not make a pick";
                 break;
         }
-
+        
         return text;
 
+    } 
+
+    function game() { 
+        let playerScore; 
+        let computerScore; 
+        let result;
+
+        for (var i = 0; i <= 5; i++) {
+            let split = playRound(user, computerPlay()).split; 
+            let splitIndex = split[1]; 
+
+            switch (splitIndex) {
+                case "lose!":
+                    ++computerScore;
+                    break; 
+                case "win!":
+                    ++playerScore;
+                    break; 
+            }
+
+        } 
+
+        if (playerScore > computerScore) {
+            result = "You win!" + playerScore + computerScore;
+        } else {
+            result = "You lose!" + playerScore + computerScore;
+        } 
+
+        return result;
+
+
+    } 
+
+    function testSplit(arrayIndex) {
+        let textToSplit = "this is a test string";
+        let split = textToSplit.split(" ");
+        return split[arrayIndex]; 
     }
+
+
+
 </script>
