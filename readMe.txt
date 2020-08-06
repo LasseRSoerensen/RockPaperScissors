@@ -1,0 +1,1 @@
+The game "Rock, paper and scissors" coded as a project during the "Web Development 101" course on https://www.theodinproject.com/
