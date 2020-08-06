@@ -1,6 +1,6 @@
 <script> 
 
-    let user = prompt(); 
+    
 
     function computerPlay() {
         let picks = Array("rock", "paper", "scissors");
@@ -9,7 +9,7 @@
     } 
 
     function playRound(playerSelection, computerSelection) {
-        let userInput = playerSelection.toLowerCase();
+        let userInput = playerSelection.toLowerCase(); 
         let computerInput = computerSelection; 
         let text; 
 
@@ -17,7 +17,7 @@
             case "rock":
                 switch (computerInput) {
                     case "rock":
-                        text = "Its even, both picked rock!";
+                        text = "Its even, both picked rock! pick again";
                         break;
                     case "paper":
                         text = "You lose! paper beats rock";
@@ -33,7 +33,7 @@
                         text = "you win! paper beats rock";
                         break;
                     case "paper":
-                        text = "Its even! you both picked paper!";
+                        text = "Its even! you both picked paper! pick again";
                         break;
                     case "scissors":
                         text = "You lose! scissors beats paper!";
@@ -49,12 +49,12 @@
                         text = "You win! scissors beats paper";
                         break;
                     case "scissors":
-                        text = "Its even! you both picked scissors!";
+                        text = "Its even! you both picked scissors! pick again";
                         break;
                 }
                 break;
             default:
-                text = "you did not make a pick";
+                text = "you did not make a pick. Pick again";
                 break;
         }
         
@@ -63,42 +63,45 @@
     } 
 
     function game() { 
-        let playerScore; 
-        let computerScore; 
+        let playerScore = 0; 
+        let computerScore = 0; 
         let result;
 
-        for (var i = 0; i <= 5; i++) {
-            let split = playRound(user, computerPlay()).split; 
-            let splitIndex = split[1]; 
+      
 
-            switch (splitIndex) {
-                case "lose!":
-                    ++computerScore;
-                    break; 
-                case "win!":
-                    ++playerScore;
-                    break; 
+
+            while (playerScore < 5 && computerScore < 5) { 
+
+                let user = prompt();
+                let splitRound = playRound(user, computerPlay());
+                let splitText = splitRound.split(" ");
+                let splitIndex = splitText[1];
+
+                switch (splitIndex) {
+                    case "lose!":
+                        ++computerScore;
+                        break;
+                    case "win!":
+                        ++playerScore;
+                        break;
+                }
+
+                console.log(splitRound);
+
             }
-
-        } 
+ 
 
         if (playerScore > computerScore) {
-            result = "You win!" + playerScore + computerScore;
+            result = "You win! with a score of " + playerScore + " over the computer, which scored " + computerScore;
+        } else if (playerScore < computerScore) {
+            result = "You lose! with a score of " + playerScore + " to the computer, which scored " + computerScore;
         } else {
-            result = "You lose!" + playerScore + computerScore;
-        } 
+            result = "Its a draw!, you scored " + playerScore + " and the computer scored " + computerScore; 
+        }
 
         return result;
 
 
     } 
-
-    function testSplit(arrayIndex) {
-        let textToSplit = "this is a test string";
-        let split = textToSplit.split(" ");
-        return split[arrayIndex]; 
-    }
-
-
 
 </script>
