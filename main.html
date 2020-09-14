@@ -1,112 +1,35 @@
-<script> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="Styling.css">
+</head>
+<body>
 
-    //Function that returns a random pick by the computer 
+    <div class="Buttons">
+        <br />
+        <br />
+        <div class="background">
+            <div id="textOutput"></div>
+        </div>
 
-    function computerPlay() {
-        let picks = Array("rock", "paper", "scissors");
-        let pick = picks[Math.floor(Math.random() * picks.length)];
-        return pick;
-    } 
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
 
+    </div>
 
-    //Function that plays a round with player and computer input, and returns the result of the round
+    <script type="text/javascript" src="JavascriptLinked.js"></script>
 
-    function playRound(playerSelection, computerSelection) {
-        let userInput = playerSelection.toLowerCase(); 
-        let computerInput = computerSelection; 
-        let text; 
+</body>
 
-        switch (userInput) {
-            case "rock":
-                switch (computerInput) {
-                    case "rock":
-                        text = "Its even, both picked rock! pick again";
-                        break;
-                    case "paper":
-                        text = "You lose! paper beats rock";
-                        break;
-                    case "scissors":
-                        text = "You win! rock beats scissors";
-                        break;
-                }
-                break;
-            case "paper":
-                switch (computerInput) {
-                    case "rock":
-                        text = "you win! paper beats rock";
-                        break;
-                    case "paper":
-                        text = "Its even! you both picked paper! pick again";
-                        break;
-                    case "scissors":
-                        text = "You lose! scissors beats paper!";
-                        break;
-                }
-                break;
-            case "scissors":
-                switch (computerInput) {
-                    case "rock":
-                        text = "You lose! rocks beats scissors";
-                        break;
-                    case "paper":
-                        text = "You win! scissors beats paper";
-                        break;
-                    case "scissors":
-                        text = "Its even! you both picked scissors! pick again";
-                        break;
-                }
-                break;
-            default:
-                text = "you did not make a pick. Pick again";
-                break;
-        }
-        
-        return text;
-
-    } 
-
-    //Function that plays five rounds of the game, and returns the winner and the scores of both the player, and the computer 
-
-    function game() { 
-        let playerScore = 0; 
-        let computerScore = 0; 
-        let result;
-
-      
+</html>
 
 
-            while (playerScore < 5 && computerScore < 5) { 
-
-                let user = prompt();
-                let splitRound = playRound(user, computerPlay());
-                let splitText = splitRound.split(" ");
-                let splitIndex = splitText[1];
-
-                switch (splitIndex) {
-                    case "lose!":
-                        ++computerScore;
-                        break;
-                    case "win!":
-                        ++playerScore;
-                        break;
-                }
-
-                console.log(splitRound);
-
-            }
- 
-
-        if (playerScore > computerScore) {
-            result = "You win! with a score of " + playerScore + " over the computer, which scored " + computerScore;
-        } else if (playerScore < computerScore) {
-            result = "You lose! with a score of " + playerScore + " to the computer, which scored " + computerScore;
-        } else {
-            result = "Its a draw!, you scored " + playerScore + " and the computer scored " + computerScore; 
-        }
-
-        return result;
 
 
-    } 
 
-</script>
+
+
+
+
+
